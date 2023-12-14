@@ -6,11 +6,12 @@ import axios from 'axios';
 
 function App() {
   const [usuarios, setUsuarios] = useState([]);
+  const urlBackend = 'https://examen-web-back-luis-projects-46e18a31.vercel.app';
 
   useEffect(() => {
     const obtenerUsuarios = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api');
+        const response = await fetch(urlBackend + '/api/');
         if (response.ok) {
           const data = await response.json();
           setUsuarios(data);
