@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import axios from 'axios';
+import './css/App.css';
 
 
 function App() {
@@ -32,6 +31,7 @@ function App() {
         <p>
           Hermano aqui estamos
         </p>
+        <a href='/subir'> Nos vamos </a>
         <ul>
           AQUI
           {usuarios.map(producto => (
