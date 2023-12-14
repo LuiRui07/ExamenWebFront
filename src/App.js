@@ -14,6 +14,7 @@ function App() {
         if (response.ok) {
           const data = await response.json();
           setUsuarios(data);
+          console.log(data);
         } else {
           console.error('Error al obtener Usuarios:', response.statusText);
         }
