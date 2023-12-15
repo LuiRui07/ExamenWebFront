@@ -17,7 +17,7 @@ return (
                     </button>
                             <div className="navbar-nav" style={{ display: 'flex', alignItems: 'center' }}>
                                 <a className="nav-link active" aria-current="page" href="/">Inicio</a>
-                                <a className="nav-link"  href="/logsInicioSesion">Logs</a>
+                                <a className="nav-link"  href="/logs">Logs</a>
                             </div>
                             <div>
                             <Login/>
