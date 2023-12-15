@@ -37,6 +37,26 @@ const PaginaEvento = () => {
             });
     }, []);
 
+    const handleBorrar = async () => {
+        try {
+          await axios.delete(`https://examen-web-back.vercel.app/eventos/id/${id}`);
+          history.push('/'); // Redirigir a la página principal o a donde desees después de borrar
+        } catch (error) {
+          console.error('Error al borrar el evento:', error);
+        }
+      };
+
+    const handelUpdate = async () => {
+        e.preventDefault();
+        try {
+          await axios.put(`https://examen-web-back.vercel.app/eventos/id/${id}`, evento);
+          // Puedes redirigir al usuario a la página de detalles después de la actualización
+          // o realizar otras acciones necesarias
+        } catch (error) {
+          console.error('Error al actualizar el evento:', error);
+        }
+      };
+
 
 
     return (
@@ -51,6 +71,10 @@ const PaginaEvento = () => {
             <h2 className="card-text">Latitud: {evento.lat}</h2>
             <h2 className="card-text">Longitud: {evento.lon}</h2>
             <h2 className="card-text">Imagen: {evento.imagen}</h2>
+
+            <button className="btn btn-primary" onClick={handleBorrar}>
+                Borrar
+            </button>
           </div>
         </div>
       </div>
