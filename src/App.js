@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const obtenerUsuarios = async () => {
       try {
-        const response = await fetch(urlBackend + '/api/');
+        const response = await fetch(urlBackend + '/user/');
         if (response.ok) {
           const data = await response.json();
           setUsuarios(data);
