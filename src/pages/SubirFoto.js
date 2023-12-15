@@ -12,6 +12,15 @@ const SubirFoto= () => {
   
     const funcionGuardar = (e) => {
       e.preventDefault();
+
+      // Verificar si el usuario está autenticado
+      const isUserAuthenticated = new Date(localStorage.getItem("caducidad")) > new Date();
+
+      if (!isUserAuthenticated) {
+        alert("Debes iniciar sesión para subir fotos.");
+        return;
+      }
+
       const descripcion = e.target.descripcion.value;
       const nombre = e.target.nombre.value;
       const imagenes = e.target.imagenes.files;
