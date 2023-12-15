@@ -13,6 +13,13 @@ const CrearEvento= () => {
   
     const funcionGuardar = async (e) => {
       e.preventDefault();
+      const isUserAuthenticated = new Date(localStorage.getItem("caducidad")) > new Date();
+
+      if (!isUserAuthenticated) {
+        alert("Debes iniciar sesión para subir eventos.");
+        return;
+      }
+
       const nombre = e.target.nombre.value;
       const timestamp = e.target.timestamp.value;
       const lugar = e.target.lugar.value;
