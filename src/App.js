@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './css/App.css';
 import Login from './components/Login';
 import Mapa from './components/Mapa';
+import Navbar from './components/NavBar';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Login />
+        <Navbar/>
         <p>
           Hermano aqui estamos
         </p>

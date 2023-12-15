@@ -59,7 +59,7 @@ const Login = () => {
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-                            {localStorage.getItem("cargado") ? <><a className='nombreInicioSesion '>Bienvenido {localStorage.getItem("name")}</a> 
+                            {localStorage.getItem("cargado") ? <><a className='nombreInicioSesion' style={{marginRight: '2%'}}>Bienvenid@ {localStorage.getItem("name")}</a> 
                                                                 <button className='btn btn-danger' onClick={() => {
                                                                     localStorage.clear();
                                                                     window.location.href = "https://examen-web-front.vercel.app";}}>Cerrar sesion</button></>
