@@ -6,7 +6,7 @@ const LogInicioSesion = () => {
     const [logs, setLogs] = useState([]);
 
     useEffect(() => {
-        axios.get("https://examen-web-back-luis-projects-46e18a31.vercel.app/logs").then((response) => {
+        axios.get("https://examen-web-back.vercel.app/logs").then((response) => {
             setLogs(response.data);
         })
             .catch((error) => {

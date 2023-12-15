@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 import axios from 'axios';
-import Mapa from './components/Mapa';
 import Navbar from './components/NavBar';
 
 function App() {
@@ -15,10 +14,10 @@ function App() {
     const direccion = document.getElementById("direccion").value;
     
     try {
-      const direccionCoordenadasResponse = await axios.get(`http://localhost:5001/map/direccionCoordenadas/${direccion}`);
+      const direccionCoordenadasResponse = await axios.get(`https://examen-web-back.vercel.app/map/direccionCoordenadas/${direccion}`);
       const { lat, lon } = direccionCoordenadasResponse.data;
       console.log(lat, lon);
-      const eventosResponse = await axios.get(`http://localhost:5001/eventos/lat/${lat}/lon/${lon}`);
+      const eventosResponse = await axios.get(`https://examen-web-back.vercel.app/eventos/lat/${lat}/lon/${lon}`);
       
       document.getElementById("direccion").value = "";
       setPulsado(true);

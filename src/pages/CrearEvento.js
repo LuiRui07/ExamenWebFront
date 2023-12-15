@@ -16,40 +16,42 @@ const CrearEvento= () => {
       const nombre = e.target.nombre.value;
       const timestamp = e.target.timestamp.value;
       const lugar = e.target.lugar.value;
-      const lat = null;
-      const lon = null;
-
-      // Verificar si el usuario está autenticado
-      //const isUserAuthenticated = new Date(localStorage.getItem("caducidad")) > new Date();
-
-      //if (!isUserAuthenticated) {
-      //  alert("Debes iniciar sesión para subir fotos.");
-       // return;
-      //}
+      const imagen = e.target.imagenes.files[0]; // Solo tomamos la primera imagen
+    
       try {
         // Obtener coordenadas de la dirección de manera asíncrona
-        const response = await axios.get(`http://localhost:5001/map/direccionCoordenadas/${lugar}`);
+        const response = await axios.get(`https://examen-web-back.vercel.app/map/direccionCoordenadas/${lugar}`);
         const lat = response.data.lat;
         const lon = response.data.lon;
     
-        // Crear el objeto de evento después de obtener las coordenadas
+        // Subir la imagen a Cloudinary y obtener la URL
+        const formData = new FormData();
+        formData.append('imagen', imagen);
+    
+        const cloudinaryResponse = await axios.post('https://examen-web-back.vercel.app/cloudinary/subirFoto', formData);
+        const imagenUrl = cloudinaryResponse.data.secure_url;
+    
+        // Crear el objeto de evento después de obtener las coordenadas y la URL de la imagen
         const evento = {
           nombre: nombre,
           timestamp: timestamp,
           lat: lat,
           lon: lon,
+          imagen: imagenUrl,
         };
-
-        const createEventResponse = await axios.post('http://localhost:5001/eventos/', evento);
-
+    
+        // Crear el evento en la base de datos
+        const createEventResponse = await axios.post('https://examen-web-back.vercel.app/eventos/', evento);
         const { data } = createEventResponse;
         console.log(data);
-
-        } catch (error) {
-          // Manejar errores
-          console.log(error);
-        }
+    
+      } catch (error) {
+        // Manejar errores
+        console.log(error);
+      }
     };
+    
+    
   
     return (
       <div>
@@ -93,6 +95,18 @@ const CrearEvento= () => {
                     className="form-control"
                     id="desc"
                     name="timestamp"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="imagenes" className="form-label">
+                    Imagen
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control"
+                    name="imagenes"
+                    multiple
+                    required
                   />
                 </div>
                 <button

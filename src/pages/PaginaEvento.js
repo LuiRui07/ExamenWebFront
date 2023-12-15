@@ -12,7 +12,7 @@ const PaginaEvento = () => {
     const id = useParams().id;
 
     useEffect(() => {
-        axios.get(`http://localhost:5001/eventos/id/${id}`)
+        axios.get(`https://examen-web-back.vercel.app/eventos/id/${id}`)
             .then(response => {
                 if (response.data !== null) {
                     setEvento(response.data);
@@ -25,7 +25,7 @@ const PaginaEvento = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(`http://localhost:5001/id/${evento.imagen}`)
+        axios.get(`https://examen-web-back.vercel.app/id/${evento.imagen}`)
             .then(response => {
                 if (response.data !== null) {
                     setEvento(response.data);
