@@ -10,7 +10,7 @@ const Login = () => {
     async function handleCallbackResponse(response) {
         var userObject = jwtDecode(response.credential);
         localStorage.setItem("token", response.credential);
-        localStrorage.setItem("caducidad",new Date(userObject.exp * 1000));
+        localStorage.setItem("caducidad",new Date(userObject.exp * 1000));
         localStorage.setItem("email", userObject.email);
         localStorage.setItem("name", userObject.name);
         localStorage.setItem("picture", userObject.picture);
