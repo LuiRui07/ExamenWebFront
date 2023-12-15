@@ -3,7 +3,7 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '../components/NavBar.js';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 
 
