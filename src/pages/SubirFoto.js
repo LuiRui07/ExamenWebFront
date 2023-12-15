@@ -1,11 +1,9 @@
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../hooks/UserContentHook';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 
 const SubirFoto= () => {
-    const user = useContext(UserContext);
-    const imagenes = [];
+    const user = [];
     const [showAlert, setShowAlert] = useState(false);
   
     const handleClick = () => {
@@ -24,7 +22,7 @@ const SubirFoto= () => {
         formData.append('imagen', imagen);
   
         // Devolvemos la promesa de la subida de la imagen
-        return axios.post('http://localhost:5001/api/subirFoto', formData)
+        return axios.post('https://examen-web-back-luis-projects-46e18a31.vercel.app/cloudinary/subirFoto', formData)
           .then((response) => response.data.secure_url);
   
       });

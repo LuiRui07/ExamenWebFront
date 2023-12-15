@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
+import Login from './components/Login';
+import Mapa from './components/Mapa';
 
 
 function App() {
@@ -28,9 +30,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Login />
         <p>
           Hermano aqui estamos
         </p>
+        <a href = '/logs'> Logs </a>
         <a href='/subir'> Nos vamos </a>
         <ul>
           AQUI
@@ -39,6 +43,7 @@ function App() {
           ))}
         </ul>
       </header>
+      <Mapa />
     </div>
   );
 }
