@@ -39,7 +39,7 @@ const PaginaEvento = () => {
 
     const handleBorrar = async () => {
         try {
-          await axios.delete(`https://examen-web-back.vercel.app/eventos/id/${id}`);
+          await axios.delete(`https://examen-web-back.vercel.app/eventos/${id}`);
         } catch (error) {
           console.error('Error al borrar el evento:', error);
         }
