@@ -25,7 +25,7 @@ const PaginaEvento = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(`https://examen-web-back.vercel.app/id/${evento.imagen}`)
+        axios.get(`https://examen-web-back.vercel.app/cloudinary/id/${evento.imagen}`)
             .then(response => {
                 if (response.data !== null) {
                     setEvento(response.data);

@@ -50,7 +50,7 @@ function App() {
             <div className="row">
               Eventos:
               {eventos.map((evento, index) => (
-                <div className="col-md-4" key={evento.id}>
+                <div className="col-sm" key={evento.id}>
                   <div className="card">
                     <div className="card-body">
                       <a className="card-title" href={`/paginaEvento/${evento._id}`} key={index}>{evento.nombre}</a>
